@@ -37,10 +37,12 @@ First, you'll need to clone the repo.
     $ git clone git@github.com:zachwill/flask_heroku.git
     $ cd flask_heroku
 
-Second, let's download `pip` and `virtualenv`.
+Second, let's download `pip`, `virtualenv`, and the [`heroku` Ruby
+gem](http://devcenter.heroku.com/articles/using-the-cli).
 
     $ sudo easy_install pip
     $ sudo pip install virtualenv
+    $ gem install heroku
 
 Now, you can setup an isolated environment with `virtualenv`.
 
