@@ -1,16 +1,15 @@
 #!/usr/bin/env python
 
 """
-Bootstrap and serve your application. This file also serves to not make your
-application completely reliant upon DotCloud's hosting service.
+Bootstrap and serve your application. If you're in a development environment,
+envoke the script with:
 
-If you're in a development environment, envoke the script with:
     $ python bootstrap.py
 
 In a production environment, your application can be run with the `gevent`
 Python library:
-    $ python bootstrap.py --gevent
 
+    $ python bootstrap.py --gevent
 """
 
 import os
@@ -35,7 +34,7 @@ def serve_app(gevent_environment):
     app = create_app()
     if gevent_environment:
         from gevent.wsgi import WSGIServer
-        # Get the port if on heroku's environment.
+        # Get the $PORT variable on heroku's environment.
         port = int(os.environ.get('PORT', 5000))
         http_server = WSGIServer(('', port), app)
         http_server.serve_forever()
