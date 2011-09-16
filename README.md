@@ -102,32 +102,3 @@ need to update the `requirements.txt` file. One way that this can be
 done is with `pip freeze`.
 
     $ pip freeze > requirements.txt
-
-
-Other Hosting Environments
---------------------------
-
-In case you're wanting to host your application on another environment
-(the use case I'm imagining currently is Amazon's AWS), you could always
-install `pip` and then uncomment `gevent` from the `requirements.txt`
-file (or whatever server you plan on using).
-
-We'll first setup our isolated environment like before:
-
-    $ sudo easy_install pip
-    $ pip install virtualenv
-    $ virtualenv --no-site-packages env
-    $ source env/bin/activate
-
-You then should have no problem installing the packages.
-
-    $ pip install -r requirements.txt
-
-The idea then is that your application could be served with `gevent` by
-envoking the `bootstrap.py` file like so:
-
-    $ python bootstrap.py --gevent
-
-Currently, this is more of a general idea than a working implementation
--- I'm sure you'd want to put `nginx` in front of your configuration to
-serve up static files and media.
