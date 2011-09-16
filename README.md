@@ -79,7 +79,7 @@ up and running.
     $ heroku ps
 
 To get the name of your application -- and view it in your web browser
-(at `my-app-name.heroku.com`) -- run the following:
+(at `my-app-name.herokuapps.com`) -- run the following:
 
     $ heroku apps
 
