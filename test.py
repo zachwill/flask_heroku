@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Tests for the Flask Cloud template."""
+"""Tests for the Flask Heroku template."""
 
 import unittest
 from app import create_app
