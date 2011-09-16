@@ -1,5 +1,5 @@
 """
-Flask Module Docs:  http://flask.pocoo.org/docs/api/#flask.Module
+Flask Blueprint Docs:  http://flask.pocoo.org/docs/api/#flask.Blueprint
 
 This file is used for both the routing and logic of your
 application.
