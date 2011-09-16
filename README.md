@@ -61,10 +61,16 @@ Or, to test the production configuration, simply run:
 
     $ python bootstrap.py --gevent
 
-To upload your application to heroku, you'll first need to do the
+If you haven't [signed up for heroku](https://api.heroku.com/signup), go
+ahead and do that. You should then be able to [add your SSH key to
+heroku](http://devcenter.heroku.com/articles/quickstart), and also
+`heroku login` from the commandline.
+
+Now, to upload your application, you'll first need to do the
 following:
 
-    $ echo "I'm heroku instructions"
+    $ heroku create --stack cedar
+    $ git push heroku master
 
 This should return a URL, and you can then view your application in
 your web browser of choice.
