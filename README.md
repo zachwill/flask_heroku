@@ -13,8 +13,7 @@ included to help make your forms more aesthetically pleasing.
 
 All of the CSS stylesheets are written using the [Less
 CSS](http://lesscss.org/) syntax, since I rarely write out my
-stylesheets using vanilla CSS anymore -- seriously, who wants to work in
-"language" that doesn't support variables? If you're using Mac OS X for
+stylesheets using vanilla CSS anymore. If you're using Mac OS X for
 development, make sure to check out [incident57's
 Less.app](http://incident57.com/less/).
 
@@ -58,7 +57,7 @@ Now, you can run the application locally.
 
     $ python bootstrap.py
 
-Or, to test the product configuration, simply run:
+Or, to test the production configuration, simply run:
 
     $ python bootstrap.py --gevent
 
