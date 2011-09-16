@@ -72,8 +72,16 @@ following:
     $ heroku create --stack cedar
     $ git push heroku master
 
-This should return a URL, and you can then view your application in
-your web browser of choice.
+Finally, we can scale the web process and make sure the application is
+up and running.
+
+    $ heroku scale web=1
+    $ heroku ps
+
+To get the name of your application -- and view it in your web browser
+(at `my-app-name.heroku.com`) -- run the following:
+
+    $ heroku apps
 
 And, to deactivate `virtualenv` (once you've finished coding), you
 simply run the following command:
