@@ -14,6 +14,7 @@ Python library:
 
 import os
 import argparse
+from gevent.wsgi import WSGIServer
 from app import create_app
 
 
@@ -33,7 +34,6 @@ def serve_app(gevent_environment):
     """
     app = create_app()
     if gevent_environment:
-        from gevent.wsgi import WSGIServer
         # Get the $PORT variable on heroku's environment.
         port = int(os.environ.get('PORT', 5000))
         http_server = WSGIServer(('', port), app)
