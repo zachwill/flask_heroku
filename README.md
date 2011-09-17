@@ -41,6 +41,10 @@ stylesheets using vanilla CSS anymore. If you're using Mac OS X for
 development, make sure to check out [incident57's
 Less.app](http://incident57.com/less/).
 
+Lastly, in heroku's production environment, your Flask application will
+be served through the [gevent Python module](http://www.gevent.org/)
+WSGI server.
+
 
 Why should I use this?
 ----------------------
