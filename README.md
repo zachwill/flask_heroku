@@ -30,15 +30,14 @@ What is this?
 
 A template to get your [Flask](http://flask.pocoo.org/) app running on
 [heroku](https://www.heroku.com/) as fast as possible. For added
-convenience, the templates use [`HTML5
-Boilerplate`](https://github.com/paulirish/html5-boilerplate), and the
-[`formalize`](http://formalize.me/) project's JavaScript and CSS is also
-included to help make your forms more aesthetically pleasing.
+convenience, the templates use [Twitter's Bootstrap
+project](http://twitter.github.com/bootstrap/) to help reduce the amount
+of time it's takes you as a developer to go from an idea to a working
+site.
 
 All of the CSS stylesheets are written using the [Less
-CSS](http://lesscss.org/) syntax, since I rarely write out my
-stylesheets using vanilla CSS anymore. If you're using Mac OS X for
-development, make sure to check out [incident57's
+CSS](http://lesscss.org/) syntax (even Bootstrap's CSS). If you're using
+Mac OS X for development, make sure to check out [incident57's
 Less.app](http://incident57.com/less/).
 
 Lastly, in heroku's production environment, your Flask application will
