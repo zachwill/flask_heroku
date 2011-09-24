@@ -12,7 +12,6 @@ Python library:
     $ python bootstrap.py --gevent
 """
 
-import os
 import argparse
 from gevent.wsgi import WSGIServer
 from app import create_app
@@ -23,19 +22,21 @@ def parse_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('--gevent', action='store_true',
                         help="Run gevent's production server.")
+    parser.add_argument('--port', type=int, default=5000,
+                        help="An integer for the port you want to use.")
     args = parser.parse_args()
-    return args.gevent
+    return args
 
 
-def serve_app(gevent_environment):
+def serve_app(environment):
     """
     Serve your application. If `dev_environment` is true, then the
     application will be served using gevent's WSGIServer.
     """
     app = create_app()
-    port = int(os.environ.get('PORT', 5000))
-    if gevent_environment:
-        # Get the $PORT variable on heroku's environment.
+    port = environment.port
+    if environment.gevent:
+        # Use the $PORT variable on heroku's environment.
         http_server = WSGIServer(('', port), app)
         http_server.serve_forever()
     else:
