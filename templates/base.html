@@ -7,53 +7,36 @@
 <head>
   <meta charset="utf-8">
 
-  <title>{% block title %}yoursite.com{% endblock %}</title>
+  <title>{% block title %}piggment.com{% endblock %}</title>
+
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="author" content="Zach Williams, hey AT zachwill DOT com">
 
-  <!-- Default width should be 1100px -->
-  <meta name="viewport" content="width=1100">
-
-
-  <!-- CSS: implied media="all" -->
-  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
   <link rel="stylesheet" href="/static/css/main.css">
   {% block css %}{% endblock %}
 
-<!-- All JavaScript at the bottom, except for Modernizr and Respond.
-     Modernizr enables HTML5 elements & feature detects;
-     Respond is a polyfill for min/max-width CSS3 Media Queries.
-     For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+  <!-- Modernizr for the win... -->
   <script src="/static/js/libs/modernizr-2.0.6.js"></script>
-  <script src="/static/js/libs/respond.min.js"></script>
 
 </head>
 
 <body>
 
-    <!--Github Ribbon-->
-    <a href="http://github.com/zachwill/flask_heroku">
-        <img src="/static/img/github_ribbon.png" style="position: fixed; top: 0; right: 0; border: 0;"
-             alt="Fork me on Github" />
-    </a>
-  <div id="container">
-    <header>
-    <ul class="clearfix">
-        <li class="float_left">
-            <a href="/" class="ir">yoursite.com</a>
-        </li>
-        <li>
-            <a href="{{ url_for('views.about') }}">About</a>
-        </li>
-    </ul>
-    </header>
+    <header></header>
+
     <div id="main" role="main">
       {% block main %}{% endblock %}
     </div>
+
     <footer>
       {% block footer %}{% endblock %}
     </footer>
-  </div> <!--! end of #container -->
 
   <!-- JavaScript at the bottom for fast page loading -->
 
@@ -62,12 +45,6 @@
   <script>window.jQuery || document.write('<script src="/static/js/libs/jquery-1.6.2.min.js">\x3C/script>')</script>
 
   {% block js %}{% endblock %}
-
-
-  <!--[if lt IE 7 ]>
-    <script src="/static/js/libs/dd_belatedpng.js"></script>
-    <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
-  <![endif]-->
 
 
   <!-- mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID -->

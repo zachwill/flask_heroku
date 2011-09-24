@@ -1,97 +1,10 @@
 @green: #8fc829;
 
 /* Link Color and Styles */
-a, a:active, a:visited { color: @green; }
-a:hover { text-decoration: underline; }
+/* a, a:active, a:visited { color: @green; } */
+/* a:hover { text-decoration: underline; } */
 
 
 /* Custom highlight */
 ::-moz-selection{ background:@green; color:#fff; text-shadow: none; }
 ::selection { background:@green; color:#fff; text-shadow: none; }
-
-/* I never find myself really using list-style. */
-ul{ list-style: none; }
-
-body{
-    color: #444;
-}
-
-header{
-    display:block;
-    margin-bottom: 100px;
-    ul{
-        border-bottom:1px solid #eee;
-        margin:0 auto;
-        padding:10px 0;
-        width:80%;
-    }
-    li{
-        float: right;
-        padding-top: 24px;
-    }
-    li.float_left{
-        float:left;
-        padding-top: 10px;
-        a{
-          background: url('/static/img/yourlogo.png') no-repeat center center;
-          height: 41px;
-          width: 161px;
-        }
-    }
-    a{
-        display:block;
-        font-size:16px;
-        padding:10px 12px;
-        width:75px;
-        text-align:center;
-        text-decoration:none;
-    }
-    a, a:visited{
-        color: #444;
-    }
-    a:hover{
-        background:@green;
-        color: white;
-        text-decoration: none;
-        -moz-border-radius: 4px;
-        -webkit-border-radius: 4px;
-        border-radius: 4px;
-    }
-}
-
-.left h2, .right form{ margin-top: 20px; }
-.left{
-    background: url('/static/img/bracket.png') right top no-repeat;
-    float: left;
-    min-height:300px;
-    padding: 0 5%;
-    width: 50%;
-    h2{
-        font-size: 50px;
-        margin-bottom: 40px;
-        text-align: center;
-        text-transform: uppercase;
-    }
-    p{
-        font-size: 18px;
-        line-height:1.5;
-        padding: 0 10%;
-    }
-}
-.right{
-    background: url('/static/img/company.png') no-repeat center center;
-    min-height: 300px;
-    float: right;
-    width: 40%;
-}
-
-.flask_cloud{
-    background: url('/static/img/flaskcloud.png') no-repeat center center;
-    display: block;
-    height: 300px;
-    margin: 0 auto;
-    width: 460px;
-}
-.flask_cloud:hover{
-    background: url('/static/img/flaskcloud_hover.png') no-repeat center center;
-}

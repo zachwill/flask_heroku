@@ -7,13 +7,14 @@ application.
 
 from flask import Blueprint, render_template, request, redirect, url_for
 
-views = Blueprint('views', __name__, static_folder='../static')
+views = Blueprint('views', __name__, static_folder='../static',
+                  template_folder='../templates')
 
 
 @views.route('/')
 def index():
     """Render website's index page."""
-    return render_template('index.html')
+    return render_template('home.html')
 
 
 @views.route('/about/')
