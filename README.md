@@ -70,6 +70,14 @@ gem](http://devcenter.heroku.com/articles/using-the-cli).
     $ sudo pip install virtualenv
     $ gem install heroku
 
+Next, we'll need to install `libevent` for the `gevent` production
+server. If you're operating on a Linux OS, you can `apt-get install
+libevent-dev`. If you're using Mac OS X, consider installing the
+[homebrew](http://mxcl.github.com/homebrew/) package manager, and run
+the following command:
+
+    $ brew install libevent
+
 Now, you can setup an isolated environment with `virtualenv`.
 
     $ virtualenv --no-site-packages env
