@@ -149,3 +149,20 @@ need to update the `requirements.txt` file. One way that this can be
 done is with `pip freeze`.
 
     $ pip freeze > requirements.txt
+
+
+Renaming Your Heroku App
+------------------------
+
+Renaming your application is incredibly easy.
+
+    $ heroku rename new_name
+
+If your account is verified -- and your credit card is on file -- you
+can also easily add a custom domain to your application.
+
+    $ heroku addons:add custom_domains
+    $ heroku domains:add www.mydomainname.com
+
+You can add a [naked domain
+name](http://devcenter.heroku.com/articles/custom-domains), too.
