@@ -12,8 +12,8 @@ views = Blueprint('views', __name__, static_folder='../static',
 
 
 @views.route('/')
-def index():
-    """Render website's index page."""
+def home():
+    """Render website's home page."""
     return render_template('home.html')
 
 

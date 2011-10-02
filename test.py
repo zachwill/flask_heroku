@@ -12,7 +12,7 @@ class TestApp(unittest.TestCase):
         app = create_app()
         self.app = app.test_client()
 
-    def test_index_page_works(self):
+    def test_home_page_works(self):
         rv = self.app.get('/')
         self.assertTrue(rv.data)
         self.assertEquals(rv.status_code, 200)
