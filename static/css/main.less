@@ -1,10 +1,8 @@
+@import "bootstrap/mixins.less";
+
 @green: #8fc829;
-
-/* Link Color and Styles */
-/* a, a:active, a:visited { color: @green; } */
-/* a:hover { text-decoration: underline; } */
-
+@pink: #be1a8d;
 
 /* Custom highlight */
-::-moz-selection{ background:@green; color:#fff; text-shadow: none; }
-::selection { background:@green; color:#fff; text-shadow: none; }
+::-moz-selection{ background:@pink; color:#fff; text-shadow: -1px 1px 1px darken(@pink, 15%); }
+::selection { background:@pink; color:#fff; text-shadow: -1px 1px 1px darken(@pink, 15%); }

@@ -1,2 +1,3 @@
-::-moz-selection{background:#8fc829;color:#fff;text-shadow:none;}
-::selection{background:#8fc829;color:#fff;text-shadow:none;}
+
+::-moz-selection{background:#be1a8d;color:#fff;text-shadow:-1px 1px 1px #7b115b;}
+::selection{background:#be1a8d;color:#fff;text-shadow:-1px 1px 1px #7b115b;}
