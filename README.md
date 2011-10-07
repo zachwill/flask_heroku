@@ -106,21 +106,20 @@ heroku](http://devcenter.heroku.com/articles/quickstart), and also
 `heroku login` from the commandline.
 
 Now, to upload your application, you'll first need to do the
-following:
+following -- and obviously change `app_name` to the name of your
+application:
 
-    $ heroku create --stack cedar
+    $ heroku create app_name --stack cedar
     $ git push heroku master
-
-Finally, we can scale the web process and make sure the application is
-up and running.
-
     $ heroku scale web=1
+
+Finally, we can make sure the application is up and running.
+
     $ heroku ps
 
-To get the name of your application -- and view it in your web browser
-(at `my-app-name.herokuapps.com`) -- run the following:
+Now, we can view the application in our web browser.
 
-    $ heroku apps
+    $ heroku open
 
 And, to deactivate `virtualenv` (once you've finished coding), you
 simply run the following command:
