@@ -98,7 +98,7 @@ Or, to test the production configuration, simply run:
 
 You can also specify what port you'd prefer to use.
 
-    $ python bootstrap.py --port 5555
+    $ python bootstrap.py 5555
 
 If you haven't [signed up for heroku](https://api.heroku.com/signup), go
 ahead and do that. You should then be able to [add your SSH key to

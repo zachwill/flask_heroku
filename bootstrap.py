@@ -6,6 +6,10 @@ envoke the script with:
 
     $ python bootstrap.py
 
+You can also specify the port you want to use:
+
+    $ python bootstrap.py 5555
+
 In a production environment, your application can be run with the `gevent`
 Python library:
 
@@ -20,10 +24,10 @@ from app import create_app
 def parse_arguments():
     """Parse any additional arguments that may be passed to `bootstrap.py`."""
     parser = argparse.ArgumentParser()
+    parser.add_argument('port', nargs='?', default=5000, type=int,
+                        help="An integer for the port you want to use.")
     parser.add_argument('--gevent', action='store_true',
                         help="Run gevent's production server.")
-    parser.add_argument('--port', type=int, default=5000,
-                        help="An integer for the port you want to use.")
     args = parser.parse_args()
     return args
 
