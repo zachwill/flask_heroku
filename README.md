@@ -40,12 +40,13 @@ CSS](http://lesscss.org/) syntax (even Bootstrap's CSS). If you're using
 Mac OS X for development, make sure to check out [incident57's
 Less.app](http://incident57.com/less/).
 
-Alternatively, there's a Less binary compiler that works similarly on
+Alternatively, there's a [Less binary
+compiler](https://github.com/cloudhead/less.js/) that works similarly on
 the commandline, or you can always use the [`less.js`
-script](https://raw.github.com/cloudhead/less.js/master/dist/less-1.1.4.js)
-in your website otherwise -- it's incredibly fast. For instance, if you
-visit the [Less CSS site](http://lesscss.org), notice that it doesn't
-link to any CSS files. **NOTE**: You can hotlink the [minified
+script](https://github.com/cloudhead/less.js/) in your website otherwise
+-- it's incredibly fast. For instance, if you visit the [Less CSS
+site](http://lesscss.org), notice that it doesn't link to any CSS files.
+**NOTE**: You can hotlink the [minified
 less.js](http://cdnjs.cloudflare.com/ajax/libs/less.js/1.1.3/less-1.1.3.min.js)
 from [CDN JS](http://www.cdnjs.com/).
 
