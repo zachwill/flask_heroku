@@ -137,6 +137,21 @@ simply run the following command:
     $ deactivate
 
 
+Next Steps
+----------
+
+After you've got your application up and running, there a couple next
+steps you should consider following.
+
+1. Create a new `README.md` file.
+2. Add your Google Analytics ID to the `base.html` template.
+3. Adjust the `author` and `description` `<meta>` tags in the
+   `base.html` template.
+4. Change the `humans.txt` and `favicon.ico` files in the `static`
+   directory.
+5. Change the `apple-touch` icons in the `static` directory.
+
+
 Reactivating the Virtual Environment
 ------------------------------------
 
