@@ -99,12 +99,42 @@ Or, to test the production configuration, simply run:
     $ python bootstrap.py --tornado
 
 **NOTE**: There's also a `gevent` branch that does not use `tornado` as
-the production server. It's faster, but `gevent` is harder to set up
-locally.
+the production server. It's significantly faster, but `gevent` is harder
+to set up locally. It's what I actually use and deploy.
 
-Also, you can also specify what port you'd prefer to use.
+Lastly, you can also specify what port you'd prefer to use.
 
     $ python bootstrap.py 5555
+
+
+Gevent Branch
+-------------
+
+To use the `gevent` branch, we'll need to install `libevent` for the
+`gevent` production server. If you're operating on a Linux OS, you can
+`apt-get install libevent-dev`. If you're using Mac OS X, consider
+installing the [homebrew](http://mxcl.github.com/homebrew/) package
+manager, and run the following command:
+
+    $ brew install libevent
+
+If you're using Mac OS X, you can also install `libevent` through [a DMG
+available on Rudix](http://rudix.org/packages-jkl.html#libevent).
+
+You can then checkout the `gevent` branch:
+
+    $ git checkout -t origin/gevent
+
+Also, if you don't want to checkout the new branch, just uncomment
+`gevent` in the `requirements.txt` file, run `pip install -r
+requirements` again, and change the `Procfile` to use the following
+command:
+
+    web: python bootstrap.py $PORT --gevent
+
+
+Deploying
+---------
 
 If you haven't [signed up for heroku](https://api.heroku.com/signup), go
 ahead and do that. You should then be able to [add your SSH key to
@@ -169,32 +199,6 @@ need to update the `requirements.txt` file. One way that this can be
 done is with `pip freeze`.
 
     $ pip freeze > requirements.txt
-
-
-Gevent Branch
--------------
-
-To use the `gevent` branch, we'll need to install `libevent` for the
-`gevent` production server. If you're operating on a Linux OS, you can
-`apt-get install libevent-dev`. If you're using Mac OS X, consider
-installing the [homebrew](http://mxcl.github.com/homebrew/) package
-manager, and run the following command:
-
-    $ brew install libevent
-
-If you're using Mac OS X, you can also install `libevent` through [a DMG
-available on Rudix](http://rudix.org/packages-jkl.html#libevent).
-
-You can then checkout the `gevent` branch:
-
-    $ git checkout -b origin/gevent
-
-Also, if you don't want to checkout the new branch, just uncomment
-`gevent` in the `requirements.txt` file, run `pip install -r
-requirements` again, and change the `Procfile` to use the following
-command:
-
-    web: python bootstrap.py $PORT --gevent
 
 
 Renaming Your Heroku App
