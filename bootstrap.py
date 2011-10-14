@@ -17,7 +17,6 @@ Python library:
 """
 
 import argparse
-from gevent.wsgi import WSGIServer
 from app import create_app
 
 
@@ -27,6 +26,8 @@ def parse_arguments():
     parser.add_argument('port', nargs='?', default=5000, type=int,
                         help="An integer for the port you want to use.")
     parser.add_argument('--gevent', action='store_true',
+                        help="Run gevent's production server.")
+    parser.add_argument('--tornado', action='store_true',
                         help="Run gevent's production server.")
     args = parser.parse_args()
     return args
@@ -41,8 +42,16 @@ def serve_app(environment):
     port = environment.port
     if environment.gevent:
         # Use the $PORT variable on heroku's environment.
+        from gevent.wsgi import WSGIServer
         http_server = WSGIServer(('', port), app)
         http_server.serve_forever()
+    elif environment.tornado:
+        from tornado.wsgi import WSGIContainer
+        from tornado.httpserver import HTTPServer
+        from tornado.ioloop import IOLoop
+        http_server = HTTPServer(WSGIContainer(app))
+        http_server.listen(port)
+        IOLoop.instance().start()
     else:
         app.run(debug=True, port=port)
 
