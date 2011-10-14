@@ -190,7 +190,7 @@ Also, if you don't want to checkout the new branch, just uncomment
 requirements` again, and change the `Procfile` to use the following
 command:
 
-   web: python bootstrap.py $PORT --gevent
+    web: python bootstrap.py $PORT --gevent
 
 
 Renaming Your Heroku App
