@@ -147,9 +147,10 @@ application:
 
     $ heroku create app_name --stack cedar
 
-And then push your application up to Heroku. **NOTE**: If you're using
-`gevent` for production, you might need to push up the `gevent` branch
-rather than `master`.
+And, then you can push your application up to Heroku.
+
+**NOTE**: If you're using `gevent` for production, you might need to
+push up the `gevent` branch rather than `master`.
 
     $ git push heroku master
     $ heroku scale web=1
