@@ -185,6 +185,13 @@ manager, and run the following command:
 If you're using Mac OS X, you can also install `libevent` through [a DMG
 available on Rudix](http://rudix.org/packages-jkl.html#libevent).
 
+Also, if you don't want to checkout the new branch, just uncomment
+`gevent` in the `requirements.txt` file, run `pip install -r
+requirements` again, and change the `Procfile` to use the following
+command:
+
+   web: python bootstrap.py $PORT --gevent
+
 
 Renaming Your Heroku App
 ------------------------
