@@ -10,13 +10,19 @@ You can also specify the port you want to use:
 
     $ python bootstrap.py 5555
 
-In a production environment, your application can be run with the `gevent`
-Python library:
+You can easily test the production `tornado` server, too:
+
+    $ python bootstrap.py --tornado
+
+Alternatively, your application can be run with the `gevent` Python library:
 
     $ python bootstrap.py --gevent
 """
 
 import argparse
+from tornado.wsgi import WSGIContainer
+from tornado.httpserver import HTTPServer
+from tornado.ioloop import IOLoop
 from app import create_app
 
 
@@ -46,9 +52,6 @@ def serve_app(environment):
         http_server = WSGIServer(('', port), app)
         http_server.serve_forever()
     elif environment.tornado:
-        from tornado.wsgi import WSGIContainer
-        from tornado.httpserver import HTTPServer
-        from tornado.ioloop import IOLoop
         http_server = HTTPServer(WSGIContainer(app))
         http_server.listen(port)
         IOLoop.instance().start()
