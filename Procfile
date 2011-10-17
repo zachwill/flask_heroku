@@ -1,1 +1,1 @@
-web: python bootstrap.py $PORT --gevent
+web: python bootstrap.py $PORT --tornado
