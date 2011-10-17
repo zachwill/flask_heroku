@@ -42,9 +42,9 @@ def serve_app(environment):
     application will be served using gevent's WSGIServer.
     """
     app = create_app()
+    # Use the $PORT variable on heroku's environment.
     port = environment.port
     if environment.gevent:
-        # Use the $PORT variable on heroku's environment.
         from gevent.wsgi import WSGIServer
         http_server = WSGIServer(('', port), app)
         http_server.serve_forever()
