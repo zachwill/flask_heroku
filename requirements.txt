@@ -21,5 +21,4 @@ flask-sqlalchemy
 # ----------------------
 # Production Server
 # ----------------------
-tornado
-# gevent
+gevent

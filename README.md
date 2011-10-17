@@ -96,21 +96,21 @@ Now, you can run the application locally.
 
 Or, to test the production configuration, simply run:
 
-    $ python bootstrap.py --tornado
+    $ python bootstrap.py --gevent
 
-**NOTE**: There's also a `gevent` branch that does not use `tornado` as
-the production server. It's significantly faster, but `gevent` is harder
-to set up locally. It's what I actually use and deploy.
+**NOTE**: There's also a `tornado` branch that uses `tornado` as
+the production server. It's indeed slower, but `gevent` is harder
+to set up locally.
 
 Lastly, you can also specify what port you'd prefer to use.
 
     $ python bootstrap.py 5555
 
 
-Gevent Branch
--------------
+Gevent
+------
 
-To use the `gevent` branch, we'll need to install `libevent` for the
+To use `gevent`, we'll need to install `libevent` for the
 `gevent` production server. If you're operating on a Linux OS, you can
 `apt-get install libevent-dev`. If you're using Mac OS X, consider
 installing the [homebrew](http://mxcl.github.com/homebrew/) package
@@ -121,16 +121,21 @@ manager, and run the following command:
 If you're using Mac OS X, you can also install `libevent` through [a DMG
 available on Rudix](http://rudix.org/packages-jkl.html#libevent).
 
-You can then checkout the `gevent` branch:
 
-    $ git checkout -t origin/gevent
+Tornado
+-------
 
-Also, if you don't want to checkout the new branch, just uncomment
-`gevent` in the `requirements.txt` file, run `pip install -r
+If you'd rather use `tornado` for a your production server, you can then
+checkout the `tornado` branch:
+
+    $ git checkout -t origin/tornado
+
+Also, if you don't want to checkout the new branch, just add
+`tornado` in the `requirements.txt` file, run `pip install -r
 requirements` again, and change the `Procfile` to use the following
 command:
 
-    web: python bootstrap.py $PORT --gevent
+    web: python bootstrap.py $PORT --tornado
 
 
 Deploying
@@ -149,8 +154,8 @@ application:
 
 And, then you can push your application up to Heroku.
 
-**NOTE**: If you're using `gevent` for production, you might need to
-push up the `gevent` branch rather than `master`.
+**NOTE**: If you're using `tornado` for your production server, you
+might need to push up the `tornado` branch rather than `master`.
 
     $ git push heroku master
     $ heroku scale web=1
