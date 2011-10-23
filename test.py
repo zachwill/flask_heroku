@@ -35,11 +35,6 @@ class TestApp(unittest.TestCase):
         self.assertTrue(rv.data)
         self.assertEquals(rv.status_code, 200)
 
-    def test_qunit_javascript_tests(self):
-        rv = self.app.get('/qunit/')
-        assert 'QUnit Tests' in rv.data
-        self.assertEquals(rv.status_code, 200)
-
 
 if __name__ == '__main__':
     unittest.main()

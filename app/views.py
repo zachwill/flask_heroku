@@ -32,12 +32,6 @@ def send_text_file(file_name):
     return views.send_static_file(file_dot_text)
 
 
-@views.route('/qunit/')
-def qunit():
-    """Render a QUnit page for JavaScript tests."""
-    return render_template('test_js.html')
-
-
 @views.after_request
 def add_header(response):
     """
