@@ -38,8 +38,8 @@ def parse_arguments():
 
 def serve_app(environment):
     """
-    Serve your application. If `dev_environment` is true, then the
-    application will be served using gevent's WSGIServer.
+    Serve your application. If a server argument is not passed, then your
+    application will be run through Flask's development server.
     """
     app = create_app()
     # Use the $PORT variable on heroku's environment.
