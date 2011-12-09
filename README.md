@@ -29,7 +29,7 @@ What is this?
 -------------
 
 A template to get your [Flask](http://flask.pocoo.org/) app running on
-[heroku](https://www.heroku.com/) as fast as possible. For added
+[Heroku](https://www.heroku.com/) as fast as possible. For added
 convenience, the templates use [Twitter's Bootstrap
 project](http://twitter.github.com/bootstrap/) to help reduce the amount
 of time it's takes you as a developer to go from an idea to a working
@@ -50,7 +50,7 @@ site](http://lesscss.org), notice that it doesn't link to any CSS files.
 less.js](http://cdnjs.cloudflare.com/ajax/libs/less.js/1.1.3/less-1.1.3.min.js)
 from [CDN JS](http://www.cdnjs.com/).
 
-Lastly, in heroku's production environment, your Flask application will
+Lastly, in Heroku's production environment, your Flask application will
 be served through the [gevent Python module](http://www.gevent.org/)
 WSGI server.
 
@@ -141,9 +141,9 @@ command:
 Deploying
 ---------
 
-If you haven't [signed up for heroku](https://api.heroku.com/signup), go
+If you haven't [signed up for Heroku](https://api.heroku.com/signup), go
 ahead and do that. You should then be able to [add your SSH key to
-heroku](http://devcenter.heroku.com/articles/quickstart), and also
+Heroku](http://devcenter.heroku.com/articles/quickstart), and also
 `heroku login` from the commandline.
 
 Now, to upload your application, you'll first need to do the
