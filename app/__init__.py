@@ -7,8 +7,8 @@ This file creates your application.
 """
 
 from flask import Flask
-from views import views
-import settings
+from . import settings
+from .views import views
 
 
 def create_app():
@@ -18,8 +18,3 @@ def create_app():
     app.config.from_object(settings)
     app.register_blueprint(views)
     return app
-
-
-if __name__ == '__main__':
-    app = create_app()
-    app.run(debug=True)
