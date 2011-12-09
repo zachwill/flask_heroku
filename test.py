@@ -31,7 +31,7 @@ class TestApp(unittest.TestCase):
         self.assertEquals(rv.status_code, 404)
 
     def test_static_text_file_request(self):
-        rv = self.app.get('/humans.txt')
+        rv = self.app.get('/robots.txt')
         self.assertTrue(rv.data)
         self.assertEquals(rv.status_code, 200)
 
