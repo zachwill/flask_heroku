@@ -1,1 +1,34 @@
+# Virtualenv
 env
+.Python
+include
+lib
+
+# Python Packages
+*.egg
+*.egg-info
+bin
+build
+dist
+sdist
+eggs
+env
+parts
+var
+develop-eggs
+.installed.cfg
+
+# Pip Installer Log
+pip-log.txt
+
+# Unit test / coverage
+.coverage
+.tox
+
+# Mac OS X
+.DS_Store
+
+# Generated files
+*.[oa]
+*.py[co]
+*.rbc
