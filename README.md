@@ -194,12 +194,8 @@ done is with `pip freeze`.
     $ pip freeze > requirements.txt
 
 
-Renaming Your Heroku App
-------------------------
-
-Renaming your application is incredibly easy.
-
-    $ heroku rename new_name
+Custom Domains
+--------------
 
 If your account is verified -- and your credit card is on file -- you
 can also easily add a custom domain to your application.
