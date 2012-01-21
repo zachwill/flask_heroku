@@ -11,10 +11,11 @@ from . import settings
 from .views import views
 
 
-def create_app():
-    """Create your application."""
-    app = Flask(__name__, static_folder='../static',
-                template_folder='../templates')
-    app.config.from_object(settings)
-    app.register_blueprint(views)
-    return app
+app = Flask(__name__, static_folder='../static',
+            template_folder='../templates')
+app.config.from_object(settings)
+app.register_blueprint(views)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

@@ -3,13 +3,12 @@
 """Tests for the Flask Heroku template."""
 
 import unittest
-from app import create_app
+from app import app
 
 
 class TestApp(unittest.TestCase):
 
     def setUp(self):
-        app = create_app()
         self.app = app.test_client()
 
     def test_home_page_works(self):
