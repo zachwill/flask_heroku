@@ -21,4 +21,5 @@ flask-sqlalchemy
 # ----------------------
 # Production Server
 # ----------------------
+gevent
 gunicorn
