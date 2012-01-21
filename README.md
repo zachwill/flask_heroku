@@ -114,7 +114,7 @@ available on Rudix](http://rudix.org/packages-jkl.html#libevent).
 ### Without Gevent
 
 If you'd rather use `gunicorn` without `gevent`, you just need to edit
-the `Procfile` and `requirements.txt` files.
+the `Procfile` and `requirements.txt`.
 
 First, edit the `Procfile` to look the following:
 
