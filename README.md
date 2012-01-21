@@ -51,8 +51,8 @@ less.js](http://cdnjs.cloudflare.com/ajax/libs/less.js/1.1.3/less-1.1.3.min.js)
 from [CDN JS](http://www.cdnjs.com/).
 
 Lastly, in Heroku's production environment, your Flask application will
-be served through the [gevent Python module](http://www.gevent.org/)
-WSGI server.
+be served through [`gunicorn`](http://gunicorn.org/) and
+[`gevent`](http://www.gevent.org/).
 
 
 Why should I use this?
@@ -73,12 +73,12 @@ First, you'll need to clone the repo.
     $ git clone git@github.com:zachwill/flask_heroku.git
     $ cd flask_heroku
 
-Second, let's download `pip`, `virtualenv`, and the [`heroku` Ruby
-gem](http://devcenter.heroku.com/articles/using-the-cli).
+Second, let's download `pip`, `virtualenv`, `foreman`, and the [`heroku`
+Ruby gem](http://devcenter.heroku.com/articles/using-the-cli).
 
     $ sudo easy_install pip
     $ sudo pip install virtualenv
-    $ gem install heroku
+    $ sudo gem install foreman heroku
 
 Now, you can setup an isolated environment with `virtualenv`.
 
@@ -92,19 +92,11 @@ environment.
 
 Now, you can run the application locally.
 
-    $ python bootstrap.py
+    $ foreman start
 
-Or, to test the production configuration, simply run:
+You can also specify what port you'd prefer to use.
 
-    $ python bootstrap.py --gevent
-
-**NOTE**: There's also a `tornado` branch that uses `tornado` as
-the production server. It's indeed slower, but `gevent` is harder
-to set up locally.
-
-Lastly, you can also specify what port you'd prefer to use.
-
-    $ python bootstrap.py 5555
+    $ foreman start -p 5555
 
 
 Gevent
@@ -122,20 +114,16 @@ If you're using Mac OS X, you can also install `libevent` through [a DMG
 available on Rudix](http://rudix.org/packages-jkl.html#libevent).
 
 
-Tornado
--------
+### Without Gevent
 
-If you'd rather use `tornado` for a your production server, you can then
-checkout the `tornado` branch:
+If you'd rather use `gunicorn` without `gevent`, you just need to edit
+the `Procfile` and `requirements.txt` files.
 
-    $ git checkout -t origin/tornado
+First, edit the `Procfile` to look the following:
 
-Also, if you don't want to checkout the new branch, just add
-`tornado` in the `requirements.txt` file, run `pip install -r
-requirements` again, and change the `Procfile` to use the following
-command:
+    web: gunicorn -w 4 -b "0.0.0.0:$PORT" app:app
 
-    web: python bootstrap.py $PORT --tornado
+Second, remove `gunicorn` from the `requirements.txt` file.
 
 
 Deploying
@@ -150,12 +138,9 @@ Now, to upload your application, you'll first need to do the
 following -- and obviously change `app_name` to the name of your
 application:
 
-    $ heroku create app_name --stack cedar
+    $ heroku create app_name -s cedar
 
 And, then you can push your application up to Heroku.
-
-**NOTE**: If you're using `tornado` for your production server, you
-might need to push up the `tornado` branch rather than `master`.
 
     $ git push heroku master
     $ heroku scale web=1
@@ -227,3 +212,11 @@ can also easily add a custom domain to your application.
 
 You can add a [naked domain
 name](http://devcenter.heroku.com/articles/custom-domains), too.
+
+    $ heroku domains:add mydomainname.com
+
+Lastly, add the following A records to your DNS management tool.
+
+    75.101.163.44
+    75.101.145.87
+    174.129.212.2
