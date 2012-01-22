@@ -87,14 +87,6 @@ environment.
 
     $ pip install -r requirements.txt
 
-Now, you can run the application locally.
-
-    $ foreman start
-
-You can also specify what port you'd prefer to use.
-
-    $ foreman start -p 5555
-
 
 Gevent
 ------
@@ -120,7 +112,19 @@ First, edit the `Procfile` to look the following:
 
     web: gunicorn -w 4 -b "0.0.0.0:$PORT" app:app
 
-Second, remove `gunicorn` from the `requirements.txt` file.
+Second, remove `gevent` from the `requirements.txt` file.
+
+
+Running Your Application
+------------------------
+
+Now, you can run the application locally.
+
+    $ foreman start
+
+You can also specify what port you'd prefer to use.
+
+    $ foreman start -p 5555
 
 
 Deploying
