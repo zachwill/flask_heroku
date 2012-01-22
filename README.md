@@ -82,14 +82,11 @@ Now, you can setup an isolated environment with `virtualenv`.
     $ virtualenv --no-site-packages env
     $ source env/bin/activate
 
-Then, let's get the requirements installed in your isolated test
-environment.
 
-    $ pip install -r requirements.txt
+Installing Packages
+--------------------
 
-
-Gevent
-------
+### Gevent
 
 To use `gevent`, we'll need to install `libevent` for the
 `gevent` production server. If you're operating on a Linux OS, you can
@@ -113,6 +110,13 @@ First, edit the `Procfile` to look the following:
     web: gunicorn -w 4 -b "0.0.0.0:$PORT" app:app
 
 Second, remove `gevent` from the `requirements.txt` file.
+
+### `pip`
+
+Then, let's get the requirements installed in your isolated test
+environment.
+
+    $ pip install -r requirements.txt
 
 
 Running Your Application
