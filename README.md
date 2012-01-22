@@ -111,7 +111,7 @@ First, edit the `Procfile` to look the following:
 
 Second, remove `gevent` from the `requirements.txt` file.
 
-### `pip`
+### pip
 
 Then, let's get the requirements installed in your isolated test
 environment.
