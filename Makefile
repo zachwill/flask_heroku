@@ -14,8 +14,7 @@ port=5000
 # ----------------------
 build:
 	@echo "\n⚡  ${BOLD}This might take a minute${NORM}  ⚡\n"
-	@make bootstrap
-	@cd bootstrap; mv bootstrap ../update
+	@make clone
 	@make update
 	@make js
 	@rm -rf {bootstrap,update}
@@ -25,11 +24,12 @@ build:
 # ----------------------
 #  Clone Bootstrap && Make
 # ----------------------
-bootstrap:
+clone:
 	@git clone git://github.com/twitter/bootstrap.git
 	@echo "\n${BOLD}Clone Twitter Bootstrap...  ${NORM}${CHECK}\n"
 	@cd bootstrap; make bootstrap
 	@cd bootstrap; cp -R less bootstrap/css/less
+	@cd bootstrap; mv bootstrap ../update
 
 
 # ----------------------
