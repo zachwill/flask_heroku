@@ -11,10 +11,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-if 'SECRET_KEY' in os.environ:
-    app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
-else:
-    app.config['SECRET_KEY'] = 'this_should_be_configured'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'this_should_be_configured')
 
 
 ###
