@@ -1,150 +1,236 @@
 //
-// Tables.less
-// Tables for, you guessed it, tabular data
-// ----------------------------------------
+// Tables
+// --------------------------------------------------
 
-
-// BASE TABLES
-// -----------------
 
 table {
   max-width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
+  background-color: @table-bg;
+}
+th {
+  text-align: left;
 }
 
-// BASELINE STYLES
-// ---------------
+
+// Baseline styles
 
 .table {
   width: 100%;
-  margin-bottom: @baseLineHeight;
+  margin-bottom: @line-height-computed;
   // Cells
-  th,
-  td {
-    padding: 8px;
-    line-height: @baseLineHeight;
-    text-align: left;
-    vertical-align: top;
-    border-top: 1px solid #ddd;
-  }
-  th {
-    font-weight: bold;
+  thead,
+  tbody,
+  tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: @table-cell-padding;
+        line-height: @line-height-base;
+        vertical-align: top;
+        border-top: 1px solid @table-border-color;
+      }
+    }
   }
   // Bottom align for column headings
-  thead th {
+  thead > tr > th {
     vertical-align: bottom;
+    border-bottom: 2px solid @table-border-color;
   }
   // Remove top border from thead by default
-  thead:first-child tr th,
-  thead:first-child tr td {
-    border-top: 0;
+  caption + thead,
+  colgroup + thead,
+  thead:first-child {
+    tr:first-child {
+      th, td {
+        border-top: 0;
+      }
+    }
   }
   // Account for multiple tbody instances
   tbody + tbody {
-    border-top: 2px solid #ddd;
+    border-top: 2px solid @table-border-color;
+  }
+
+  // Nesting
+  .table {
+    background-color: @body-bg;
   }
 }
 
 
-
-// CONDENSED TABLE W/ HALF PADDING
-// -------------------------------
+// Condensed table w/ half padding
 
 .table-condensed {
-  th,
-  td {
-    padding: 4px 5px;
-  }
-}
-
-
-// BORDERED VERSION
-// ----------------
-
-.table-bordered {
-  border: 1px solid #ddd;
-  border-collapse: separate; // Done so we can round those corners!
-  *border-collapse: collapsed; // IE7 can't round corners anyway
-  .border-radius(4px);
-  th + th,
-  td + td,
-  th + td,
-  td + th {
-    border-left: 1px solid #ddd;
-  }
-  // Prevent a double border
-  thead:first-child tr:first-child th,
-  tbody:first-child tr:first-child th,
-  tbody:first-child tr:first-child td {
-    border-top: 0;
-  }
-  // For first th or td in the first row in the first thead or tbody
-  thead:first-child tr:first-child th:first-child,
-  tbody:first-child tr:first-child td:first-child {
-    .border-radius(4px 0 0 0);
-  }
-  thead:first-child tr:first-child th:last-child,
-  tbody:first-child tr:first-child td:last-child {
-    .border-radius(0 4px 0 0);
-  }
-  // For first th or td in the first row in the first thead or tbody
-  thead:last-child tr:last-child th:first-child,
-  tbody:last-child tr:last-child td:first-child {
-    .border-radius(0 0 0 4px);
-  }
-  thead:last-child tr:last-child th:last-child,
-  tbody:last-child tr:last-child td:last-child {
-    .border-radius(0 0 4px 0);
-  }
-}
-
-
-// ZEBRA-STRIPING
-// --------------
-
-// Default zebra-stripe styles (alternating gray and transparent backgrounds)
-.table-striped {
-  tbody {
-    tr:nth-child(odd) td,
-    tr:nth-child(odd) th {
-      background-color: #f9f9f9;
+  thead,
+  tbody,
+  tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: @table-condensed-cell-padding;
+      }
     }
   }
 }
 
 
-// HOVER EFFECT
-// ------------
-// Placed here since it has to come after the potential zebra striping
-.table {
-  tbody tr:hover td,
-  tbody tr:hover th {
-    background-color: #f5f5f5;
+// Bordered version
+//
+// Add borders all around the table and between all the columns.
+
+.table-bordered {
+  border: 1px solid @table-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 1px solid @table-border-color;
+      }
+    }
+  }
+  > thead {
+    > tr {
+      > th,
+      > td {
+        border-bottom-width: 2px;
+      }
+    }
   }
 }
 
 
-// TABLE CELL SIZING
-// -----------------
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
 
-// Change the columns
-.tableColumns(@columnSpan: 1) {
+.table-striped {
+  > tbody {
+    > tr:nth-child(odd) {
+      > td,
+      > th {
+        background-color: @table-bg-accent;
+      }
+    }
+  }
+}
+
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table-hover {
+  > tbody {
+    > tr:hover {
+      > td,
+      > th {
+        background-color: @table-bg-hover;
+      }
+    }
+  }
+}
+
+
+// Table cell sizing
+//
+// Reset default table behavior
+
+table col[class*="col-"] {
   float: none;
-  width: ((@gridColumnWidth) * @columnSpan) + (@gridGutterWidth * (@columnSpan - 1)) - 16;
-  margin-left: 0;
+  display: table-column;
 }
 table {
-  .span1     { .tableColumns(1); }
-  .span2     { .tableColumns(2); }
-  .span3     { .tableColumns(3); }
-  .span4     { .tableColumns(4); }
-  .span5     { .tableColumns(5); }
-  .span6     { .tableColumns(6); }
-  .span7     { .tableColumns(7); }
-  .span8     { .tableColumns(8); }
-  .span9     { .tableColumns(9); }
-  .span10    { .tableColumns(10); }
-  .span11    { .tableColumns(11); }
-  .span12    { .tableColumns(12); }
+  td,
+  th {
+    &[class*="col-"] {
+      float: none;
+      display: table-cell;
+    }
+  }
+}
+
+
+// Table backgrounds
+//
+// Exact selectors below required to override `.table-striped` and prevent
+// inheritance to nested tables.
+
+.table > thead > tr,
+.table > tbody > tr,
+.table > tfoot > tr {
+  > td.active,
+  > th.active,
+  &.active > td,
+  &.active > th  {
+    background-color: @table-bg-active;
+  }
+}
+
+// Generate the contextual variants
+.table-row-variant(success; @state-success-bg; @state-success-border);
+.table-row-variant(danger; @state-danger-bg; @state-danger-border);
+.table-row-variant(warning; @state-warning-bg; @state-warning-border);
+
+
+// Responsive tables
+//
+// Wrap your tables in `.table-scrollable` and we'll make them mobile friendly
+// by enabling horizontal scrolling. Only applies <768px. Everything above that
+// will display normally.
+
+@media (max-width: @screen-sm) {
+  .table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    border: 1px solid @table-border-color;
+
+    // Tighten up spacing and give a background color
+    > .table {
+      margin-bottom: 0;
+      background-color: #fff;
+
+      // Ensure the content doesn't wrap
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
+    // Special overrides for the bordered tables
+    > .table-bordered {
+      border: 0;
+
+      // Nuke the appropriate borders so that the parent can handle them
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th:first-child,
+          > td:first-child {
+            border-left: 0;
+          }
+          > th:last-child,
+          > td:last-child {
+            border-right: 0;
+          }
+        }
+        > tr:last-child {
+          > th,
+          > td {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
 }
