@@ -33,6 +33,7 @@ class TestApp(unittest.TestCase):
         rv = self.app.get('/robots.txt')
         self.assertTrue(rv.data)
         self.assertEqual(rv.status_code, 200)
+        rv.close()
 
 
 if __name__ == '__main__':
