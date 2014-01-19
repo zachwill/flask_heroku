@@ -77,6 +77,8 @@ Ruby gem](http://devcenter.heroku.com/articles/using-the-cli).
     $ sudo pip install virtualenv
     $ sudo gem install foreman heroku
 
+Note: If you don't already have Ruby installed, it's easier to install the Foreman gem by using the [Heroku Toolbelt](https://toolbelt.heroku.com/).
+
 Now, you can setup an isolated environment with `virtualenv`.
 
     $ virtualenv --no-site-packages env
