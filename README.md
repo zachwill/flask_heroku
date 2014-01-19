@@ -79,7 +79,7 @@ Ruby gem](http://devcenter.heroku.com/articles/using-the-cli).
 
 Now, you can setup an isolated environment with `virtualenv`.
 
-    $ virtualenv --no-site-packages env
+    $ virtualenv env
     $ source env/bin/activate
 
 
